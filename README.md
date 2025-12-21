@@ -2,6 +2,10 @@
 
 Centralized dynamic settings system for Filament with enum-driven setting management.
 
+### Screenshots
+
+![Dynamic Settings](screenshot.png)
+
 ## Installation
 
 Install the package via composer:
