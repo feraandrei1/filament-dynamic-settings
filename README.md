@@ -2,9 +2,15 @@
 
 Centralized dynamic settings system for Filament with enum-driven setting management.
 
-### Screenshots
+![Dynamic Settings Screenshot](screenshot.png)
 
-![Dynamic Settings](screenshot.png)
+## Features
+
+- Enum-driven setting names and groups for type safety
+- Built-in Filament pages for General and Homepage settings
+- Database-backed settings storage with user-specific support
+- No third-party dependencies
+- Easy to extend and customize
 
 ## Installation
 
@@ -14,40 +20,26 @@ Install the package via composer:
 composer require ferarandrei1/filament-dynamic-settings
 ```
 
-## Publishing Migration
-
 Publish the migration file:
 
 ```bash
 php artisan vendor:publish --tag=filament-dynamic-settings-migrations
 ```
 
-Then run the migrations:
+Run the migrations:
 
 ```bash
 php artisan migrate
 ```
 
-## Features
+## Quick Start
 
-- Enum-driven setting names and groups
-- Built-in Filament pages for General and Homepage settings
-- Database-backed settings storage
-- User-specific settings support
-- No third-party dependencies
-
-## Usage
-
-### Using Built-in Pages
-
-The package automatically registers two Filament pages:
+The package automatically registers two settings pages in your Filament panel:
 
 1. **General Settings** - Manage domain settings, logo, and favicon
 2. **Homepage Settings** - Configure homepage content, social media links, and contact information
 
-These pages are automatically available in your Filament panel navigation.
-
-### Using the Setting Model
+### Basic Usage
 
 ```php
 use Feraandrei1\FilamentDynamicSettings\Models\Setting;
@@ -69,48 +61,24 @@ $settings = Setting::where('uploaded_by_user_id', Auth::id())
     ->get()
     ->keyBy('name');
 
-$logo = $settings['logo']->payload;
+$logo = $settings['logo']->payload ?? null;
 ```
 
-### Using Enums
+## Documentation
 
-```php
-use Feraandrei1\FilamentDynamicSettings\Enums\SettingName;
-use Feraandrei1\FilamentDynamicSettings\Enums\SettingGroup;
+Learn how to use and extend the package:
 
-// Get setting group from setting name
-$group = SettingName::LOGO->group(); // Returns SettingGroup::GENERAL
+- **[Using Enums for Type-Safe Settings](docs/enums-usage.md)** - Learn how to use enums for type-safe setting management and how to extend them for your custom settings.
 
-// Use enum values
-$settingName = SettingName::COMPANY_NAME->value; // 'company_name'
-$groupName = SettingGroup::HOME_PAGE->value; // 'home_page'
-```
-
-### Extending Settings
-
-You can extend the enums to add your own settings:
-
-1. Create your own enums that extend the base enums
-2. Add new cases with appropriate groups
-3. Update the `group()` method to map new cases to groups
-
-### Customizing Pages
-
-To customize the built-in pages:
-
-1. Extend the `GeneralSettings` or `HomePageSettings` classes
-2. Override the `form()` method to modify the form schema
-3. Register your custom page in your Filament panel configuration
+- **[Creating Custom Settings Pages](docs/filament-pages-usage.md)** - Learn how to create custom Filament settings pages or customize the built-in ones.
 
 ## Available Settings
 
 ### General Settings
-
 - `logo` - Main logo for the site
 - `favicon` - Browser tab icon
 
 ### Homepage Settings
-
 - `status` - Homepage enabled/disabled
 - `company_name` - Company name
 - `company_address` - Company address
