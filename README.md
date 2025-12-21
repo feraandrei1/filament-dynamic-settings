@@ -1,16 +1,12 @@
 # Filament Dynamic Settings
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Filament](https://img.shields.io/badge/Filament-v3-orange.svg)
+![Laravel](https://img.shields.io/badge/Laravel-v11-red.svg)
+
 Centralized dynamic settings system for Filament with enum-driven setting management.
 
 ![Dynamic Settings Screenshot](screenshot.png)
-
-## Features
-
-- Enum-driven setting names and groups for type safety
-- Built-in Filament pages for General and Homepage settings
-- Database-backed settings storage with user-specific support
-- No third-party dependencies
-- Easy to extend and customize
 
 ## Installation
 
@@ -72,22 +68,13 @@ Learn how to use and extend the package:
 
 - **[Creating Custom Settings Pages](docs/filament-pages-usage.md)** - Learn how to create custom Filament settings pages or customize the built-in ones.
 
-## Available Settings
+## Features
 
-### General Settings
-- `logo` - Main logo for the site
-- `favicon` - Browser tab icon
-
-### Homepage Settings
-- `status` - Homepage enabled/disabled
-- `company_name` - Company name
-- `company_address` - Company address
-- `description` - Company description
-- `instagram_link` - Instagram URL
-- `facebook_link` - Facebook URL
-- `tiktok_link` - TikTok URL
-- `email` - Contact email
-- `phone_number` - Contact phone
+- Enum-driven setting names and groups for type safety
+- Built-in Filament pages for General and Homepage settings
+- Database-backed settings storage with user-specific support
+- No third-party dependencies
+- Easy to extend and customize
 
 ## Requirements
 
