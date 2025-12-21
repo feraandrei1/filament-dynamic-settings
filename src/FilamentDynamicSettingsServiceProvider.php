@@ -12,8 +12,6 @@ class FilamentDynamicSettingsServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'filament-dynamic-settings');
-
         $this->publishes([
             __DIR__ . '/../database/migrations/2022_12_14_083707_create_settings_table.php' => database_path('migrations/2022_12_14_083707_create_settings_table.php'),
         ], 'filament-dynamic-settings-migrations');
