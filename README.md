@@ -6,7 +6,7 @@
 
 Centralized dynamic settings system for Filament with enum-driven setting management.
 
-![Dynamic Settings Screenshot](screenshot.png)
+![Dynamic Settings Screenshot](screenshot.jpg)
 
 ## Installation
 
